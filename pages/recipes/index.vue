@@ -32,7 +32,12 @@ export default {
       .get()
       .then(querySnapshot => {
         this.recipes = querySnapshot.docs.map(doc => {
-          return doc.data()
+          const data = doc.data()
+          return {
+            id: doc.id,
+            title: data.title,
+            description: data.description
+          }
         })
       })
   }

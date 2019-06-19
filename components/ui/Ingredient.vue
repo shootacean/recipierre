@@ -1,12 +1,8 @@
 <template>
-  <v-card class="ingredient">
+  <v-card class="ingredient" nuxt :to="'/ingredients/' + name">
     <v-card-title class="ingredient__title">
-      {{ title }}
+      {{ name }}
     </v-card-title>
-    <v-card-actions>
-      <v-spacer />
-      <v-btn color="primary" flat nuxt to="/recipes">レシピを見る</v-btn>
-    </v-card-actions>
   </v-card>
 </template>
 
@@ -29,7 +25,7 @@ export default {
       type: Number,
       default: 0
     },
-    title: {
+    name: {
       type: String,
       default: ''
     }

@@ -9,8 +9,8 @@
       </p>
     </v-card-text>
     <v-card-actions>
-      <v-btn color="primary" flat nuxt to="/recipes/ingredients">
-        材料を見る
+      <v-btn color="primary" flat nuxt :to="'/recipes/' + title">
+        詳しく見る
       </v-btn>
       <v-spacer />
       <v-btn color="primary" nuxt to="/today">今日作る</v-btn>
@@ -36,6 +36,10 @@
 <script>
 export default {
   props: {
+    id: {
+      type: String,
+      default: ''
+    },
     title: {
       type: String,
       default: ''

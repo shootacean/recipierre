@@ -14,6 +14,8 @@
       </v-container>
     </v-content>
 
+    <Footer />
+
     <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
       <v-list>
         <v-list-tile
@@ -32,18 +34,16 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-
-    <v-footer :fixed="fixed" app>
-      <v-btn absolute dark fab top right color="pink">
-        <v-icon>add</v-icon>
-      </v-btn>
-      <span>&copy; 2019</span>
-    </v-footer>
   </v-app>
 </template>
 
 <script>
+import Footer from '~/components/layouts/Footer.vue'
+
 export default {
+  components: {
+    Footer
+  },
   data() {
     return {
       clipped: false,

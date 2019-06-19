@@ -6,31 +6,27 @@
     justify-space-around
     align-center
   >
-    <Ingredient
+    <IngredientUI
       v-for="(ingredient, index) in ingredients"
       :key="index"
-      :title="ingredient.name"
+      :name="ingredient.name"
     />
   </v-layout>
 </template>
 
-<script lang="js">
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
 import firebase from '~/plugins/firebase'
+import IngredientUI from '~/components/ui/Ingredient.vue'
 
-import Ingredient from '~/components/ui/Ingredient.vue'
-
-export default {
+@Component({
   components: {
-    Ingredient
-  },
-  data() {
-    return {
-      ingredients: {
-        type: Array,
-        default: []
-      }
-    }
-  },
+    IngredientUI
+  }
+})
+export default class IngredientsPage extends Vue {
+  ingredients: any[] = []
+
   mounted() {
     firebase
       .firestore()
